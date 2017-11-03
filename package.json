@@ -44,5 +44,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "leslie",
-  "license": "ISC"
+  "license": "ISC",
+  "repository":"https://github.com/LeslieMay/create-antd-react"
 }
