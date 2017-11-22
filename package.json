@@ -6,6 +6,7 @@
   "dependencies": {
     "antd": "^2.11.1",
     "babel-plugin-import": "1.0.1",
+    "babel-preset-stage-1": "^6.24.1",
     "es6-promise": "^3.2.1",
     "jquery": "^3.2.1",
     "react": "^16.0.0",
@@ -38,8 +39,8 @@
     "webpack-dev-server": "^1.15.0"
   },
   "scripts": {
-  	"start": "webpack-dev-server --progress --colors --host 10.ipAddress --port 3456 --hot --open",
-    "dev": "webpack-dev-server --hot --host 10.ipAddress --port 2223 --open",
+    "start": "webpack-dev-server --progress --colors --host 10.0.11.98 --port 3456 --hot --open",
+    "dev": "webpack-dev-server --hot --host 10.0.11.98 --port 2223 --open",
     "build": "webpack --config ./webpack.production.config.js --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

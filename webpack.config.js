@@ -32,7 +32,7 @@ module.exports = {
                     plugins:[
                         ["import",[{"style":"css","libraryName":"antd"}]]
                     ],
-                    presets:["es2015","react"]
+                    presets:["es2015","react", 'stage-1']
                 }
             },
             //css loader
@@ -81,7 +81,7 @@ module.exports = {
     devServer:{
         proxy:{
             "/":{
-                target:"http://xxxxx",
+                target:"http://10.0.11.193:8080",
                 changeOrigin:true
             }
         },

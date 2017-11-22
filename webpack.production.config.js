@@ -14,7 +14,7 @@ module.exports = {
     entry:{
         app:path.resolve(__dirname,"src/js/app.js"),
         vendor:[
-			"jquery"
+			"jquery","react"
 		]//配置提取公共js文件
     },
     //配置输出文件
@@ -39,17 +39,19 @@ module.exports = {
                     plugins:[
                         ["import",[{"style":"css","libraryName":"antd"}]]
                     ],
+                    presets: ['es2015', 'react', 'stage-1']
                 }
             },
+            ,
             //css loader
             {
                 test:/\.css$/,
-                loader:"style!css!postcss"
+                loader:ExtractTextPlugin.extract('style', 'css!postcss')
             },
             //less loader
             {
                 test:/\.less$/,
-                loader:"style!css!less"
+                loader:ExtractTextPlugin.extract('style', 'css!postcss','less')
             },
             //img loader
             {
