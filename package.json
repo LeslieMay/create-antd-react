@@ -39,7 +39,7 @@
     "webpack-dev-server": "^1.15.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --host 10.0.11.98 --port 3456 --hot --open",
+    "start": "webpack-dev-server --progress --colors --host 10.0.11.98 --port 3333 --hot --open",
     "dev": "webpack-dev-server --hot --host 10.0.11.98 --port 2223 --open",
     "build": "webpack --config ./webpack.production.config.js --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
