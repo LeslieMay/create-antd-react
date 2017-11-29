@@ -151,3 +151,151 @@ export class resquest {
 		return promise;
 	}
 }
+
+
+/*
+ * 以上fetch 下 ajax
+ */
+
+const GetXmlHttpObject = () => { 
+    let xmlHttp = ''; 
+    if (window.XMLHttpRequest){ 
+      // code for IE7+, Firefox, Chrome, Opera, Safari 
+      xmlHttp=new XMLHttpRequest(); 
+    }else{// code for IE6, IE5 
+      xmlHttp=new ActiveXObject("Microsoft.XMLHTTP"); 
+    } 
+    return xmlHttp; 
+} 
+
+const parseXml = (xml) => {
+    let xmldom =  null;
+    if (typeof DOMParser != "undefined") {
+        xmldom = (new DOMParser()).parseFromString(xml, "text/xml");
+        let errors = xmldom.getElementsByTagName("parsererror");
+        if(errors.length) {
+            throw new Error("XML parsing error:" + errors[0].textContent);
+        }
+    } else if(document.implementation.hasFeature("LS", "3.0")) {
+        let implementation =  document.implementation;
+        let parser = implementaion.createLSParser(implementation.MODE_SYNCHRONOUS, null);
+        let input = implementation.createLSInput();
+        input.stringData = xml;
+        xmldom = parser.parse(input);
+    } else if(typeof ActiveXObject != "undefined") {
+        xmldom = createDocument();
+        xmldom.loadXML(xml);
+        if (xmldom.parseError != 0) {
+            throw new Error("XML parsing error:" + xmldom.parseError.reason);
+        }
+    } else {
+        throw new Error("No XML parser available.");
+    }
+    return xmldom;
+}
+
+export class ajax {
+	//get请求
+	get=(url,paramObj)=>{
+		let promise = new Promise((resolve, reject)=>{
+            let request = GetXmlHttpObject();
+            request.onreadystatechange = (e) => {
+                if (request.readyState !== 4) { return; } 
+                if (request.status === 200) { resolve(parseXml(request.responseText)) } 
+                else { reject('') }
+            }; 
+            request.open('GET', url+"?"+obj2param(paramObj)); 
+            request.send();
+        })
+        return promise
+	}
+	//post请求 form-data
+	post=(url,paramObj)=>{
+		let promise = new Promise((resolve, reject)=>{
+            let request = GetXmlHttpObject();
+            request.overrideMimeType("text/xml");//设置数据返回格式
+            request.onreadystatechange = (e) => {
+                if (request.readyState !== 4) { return; } 
+                if (request.status === 200) { resolve(parseXml(request.responseText)) } 
+                else { reject('') }
+            }; 
+            request.open("POST",url,false);
+            request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            request.send(obj2params(paramObj))
+
+        })
+        return promise
+	}
+	
+	//post请求 上传文件
+	postFile=(url,paramObj)=>{
+		let promise = new Promise((resolve, reject)=>{
+            let request = GetXmlHttpObject();
+            request.overrideMimeType("text/xml");//设置数据返回格式
+            request.onreadystatechange = (e) => {
+                if (request.readyState !== 4) { return; } 
+                if (request.status === 200) { resolve(parseXml(request.responseText)) } 
+                else { reject('') }
+            }; 
+            request.open("POST",url,false);
+            request.setRequestHeader("Content-Type","multipart/form-data");
+            request.send(paramObj)
+
+        })
+        return promise
+	}
+	
+	//post请求 json格式
+	postJson=(url,paramObj)=>{
+		let promise = new Promise((resolve, reject)=>{
+            let request = GetXmlHttpObject();
+            request.overrideMimeType("text/xml");//设置数据返回格式
+            request.onreadystatechange = (e) => {
+                if (request.readyState !== 4) { return; } 
+                if (request.status === 200) { resolve(parseXml(request.responseText)) } 
+                else { reject('') }
+            }; 
+            request.open("POST",url,false);
+            request.setRequestHeader("Content-Type","application/json");
+            request.send(JSON.stringify(paramsObj))
+
+        })
+        return promise
+	}
+	
+	//put请求 
+	put=(url,paramObj)=>{
+		let promise = new Promise((resolve, reject)=>{
+            let request = GetXmlHttpObject();
+            request.overrideMimeType("text/xml");//设置数据返回格式
+            request.onreadystatechange = (e) => {
+                if (request.readyState !== 4) { return; } 
+                if (request.status === 200) { resolve(parseXml(request.responseText)) } 
+                else { reject('') }
+            }; 
+            request.open("PUT",url,false);
+            request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            request.send(obj2params(paramObj))
+
+        })
+        return promise
+	}
+	
+	//delete请求 
+	delete=(url,paramObj)=>{
+		let promise = new Promise((resolve, reject)=>{
+            let request = GetXmlHttpObject();
+            request.overrideMimeType("text/xml");//设置数据返回格式
+            request.onreadystatechange = (e) => {
+                if (request.readyState !== 4) { return; } 
+                if (request.status === 200) { resolve(parseXml(request.responseText)) } 
+                else { reject('') }
+            }; 
+            request.open("DELETE",url,false);
+            request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            request.send(obj2params(paramObj))
+
+        })
+        return promise
+	}
+}
