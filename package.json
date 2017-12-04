@@ -38,7 +38,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --env=dev --progress --color --inline",
-    "build": "webpack --env=production --progress --color",
+    "build": "webpack --env=production --color",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

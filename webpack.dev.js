@@ -13,7 +13,7 @@ const path = require("path");
 //      IPv4 = os.networkInterfaces().en4[i].address
 //      break
 //  }
-//}cheap-module-eval-source-map
+//}
 const devConfig = {
 	devtool: 'source-map',
 	devServer:{
