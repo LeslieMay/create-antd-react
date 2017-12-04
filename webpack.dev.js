@@ -15,7 +15,7 @@ const path = require("path");
 //  }
 //}
 const devConfig = {
-	devtool: 'inline-source-map',
+	devtool: 'cheap-module-eval-source-map',
 	devServer:{
 		contentBase: path.resolve(__dirname, 'src'),
         proxy:{
@@ -31,7 +31,14 @@ const devConfig = {
         inline:true,//实时刷新
         hot:true,//使用热加载插件 HotModuleReplacementPlugin
         compress:true //开启gzip压缩
-   	}
+   	},
+   	plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.SourceMapDevToolPlugin({
+			filename: '[name].js.map',
+			exclude: /vendor.*.js$/
+		})
+    ]
 }
 
 module.exports = merge(common("dev"),devConfig);
