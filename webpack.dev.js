@@ -13,9 +13,9 @@ const path = require("path");
 //      IPv4 = os.networkInterfaces().en4[i].address
 //      break
 //  }
-//}
+//}cheap-module-eval-source-map
 const devConfig = {
-	devtool: 'cheap-module-eval-source-map',
+	devtool: 'source-map',
 	devServer:{
 		contentBase: path.resolve(__dirname, 'src'),
         proxy:{
@@ -34,10 +34,6 @@ const devConfig = {
    	},
    	plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.SourceMapDevToolPlugin({
-			filename: '[name].js.map',
-			exclude: /vendor.*.js$/
-		})
     ]
 }
 

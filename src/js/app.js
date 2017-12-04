@@ -1,7 +1,7 @@
 import React from "react"
 import {render} from "react-dom"
 import "./app.css"
-console.log("ddd")
+consol.log("ddd")
 render(
-	<h1>dddddddddddaaaaaaaaa</h1>,document.getElementById("root")
+	<h1>===</h1>,document.getElementById("root")
 )

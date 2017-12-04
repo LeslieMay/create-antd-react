@@ -15,7 +15,6 @@ const productionConfig = {
 	      	'process.env.NODE_ENV': JSON.stringify('production')
 	    }),
 	    new webpack.optimize.UglifyJsPlugin({
-	   		sourceMap: true,
 	    	parallel:true,
 	    	compress: {
                 warnings: false, // Suppress uglification warnings
@@ -33,7 +32,6 @@ const productionConfig = {
                 dry:false //启用删除文件
             }
         ),
-        new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
 	       	name: 'vendor',
 	       	filename:'js/[name].[hash:8].js'

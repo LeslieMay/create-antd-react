@@ -23,7 +23,7 @@ module.exports = function(env){
 		output:{
 			path:__dirname+"/build",
 			filename:(env=="dev")?"[name].js":"[name].[hash:8].js",
-			publicPath:"/"
+//			publicPath:"/"
 		},
 		resolve: {
 	        extensions: ['.js', '.jsx', '.json'],
