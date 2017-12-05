@@ -1,3 +1,20 @@
+@import "test.css";
+$testcolor : darkred;/*测试*/
+$h1color : 1px solid #efefef;
+
+@define-mixin getBorder $widthb,$type,$colorb{
+	border:$(widthb) $(type) $(colorb);
+}
+
 body{
-	color: darkred;
+	color: $testcolor;
+	box-sizing: border-box;
+	h1 {
+		@mixin getBorder 5px,solid,red;
+		@if 5 > 3 {
+			background-color:#000000;
+		}@else{
+			background-color:#fffeee;
+		}
+	}
 }
