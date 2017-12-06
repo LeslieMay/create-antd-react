@@ -26,12 +26,12 @@ const checkStatus = (response)=>{
 }
 
 //进行response parse操作
-const parseJson = (response)=>return response.json()
+const parseJson = (response)=>response.json()
 
 
-export class resquest {
+class Request {
 	//get请求
-	get = (url,paramsObj)=>{
+	get=(url,paramsObj)=>{
 		let promise = new Promise((resolve,reject)=>{
 			fetch(url+"?"+obj2param(paramsObj),{
 				credentials: 'include',
@@ -194,7 +194,7 @@ const parseXml = (xml) => {
     return xmldom;
 }
 
-export class ajax {
+class Ajax {
 	//get请求
 	get=(url,paramObj)=>{
 		let promise = new Promise((resolve, reject)=>{
@@ -299,3 +299,6 @@ export class ajax {
         return promise
 	}
 }
+const rep = new Request();
+const ajax = new Ajax();
+export {rep,ajax}
