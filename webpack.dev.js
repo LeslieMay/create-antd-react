@@ -5,15 +5,6 @@ const common = require("./webpack.common.js");
 const merge = require("webpack-merge");
 //引入path
 const path = require("path");
-// 获取本地网络ip
-//const os = require('os');
-//let IPv4
-//for(var i = 0;i < os.networkInterfaces().en4.length;i ++) {
-//  if(os.networkInterfaces().en4[i].family === 'IPv4') {
-//      IPv4 = os.networkInterfaces().en4[i].address
-//      break
-//  }
-//}
 const devConfig = {
 	devtool: 'source-map',
 	devServer:{
@@ -24,7 +15,7 @@ const devConfig = {
                 changeOrigin:true
             }
         },
-        host: '10.0.11.98',
+        host: "0.0.0.0",
         port:3333,
         open:true,
         historyApiFallback:true,//异步  不跳转
