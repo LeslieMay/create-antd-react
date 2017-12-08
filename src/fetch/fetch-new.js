@@ -31,7 +31,7 @@ const parseJson = (response)=>response.json()
 
 class Request {
 	//get请求
-	get=(url,paramsObj)=>{
+	get(url,paramsObj){
 		let promise = new Promise((resolve,reject)=>{
 			fetch(url+"?"+obj2param(paramsObj),{
 				credentials: 'include',
@@ -299,6 +299,6 @@ class Ajax {
         return promise
 	}
 }
-const rep = new Request();
-const ajax = new Ajax();
-export {rep,ajax}
+//const rep = new Request();
+//const ajax = new Ajax();
+export {Request,Ajax}
