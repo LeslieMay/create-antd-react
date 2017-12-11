@@ -1,0 +1,19 @@
+{
+  "presets":["react","env","stage-1"],
+  "plugins": [
+    ["transform-decorators-legacy"],
+    "transform-runtime",
+    ["import",{"style": "css","libraryName": "antd"}]
+  ],
+  "env": {
+    "development": {
+    "plugins": [["react-transform", {
+       "transforms": [{
+         "transform": "react-transform-hmr",
+         "imports": ["react"],
+         "locals": ["module"]
+       }]
+     }]]
+    }
+  }
+}

@@ -32,15 +32,7 @@ module.exports = function(env){
 			rules:[{
 				test:/\.(js|jsx)?$/,
 				exclude:/node_modules/,
-				use:{
-			        loader: 'babel-loader',
-			        options: {
-			          	presets: ['env',"react","stage-1"],
-			          	plugins: [
-					  		'transform-runtime',["import",{"style": "css","libraryName": "antd"}],["transform-decorators-legacy"]
-					    ]
-			        }
-			    }
+				use: ['babel-loader']
 			},
 			{
 	        	test: /\.css$/,

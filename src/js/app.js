@@ -1,12 +1,7 @@
 import React from "react"
 import {render} from "react-dom"
 import "./app.css"
-
-import {Request,Ajax} from "../fetch/fetch-new.js"
-
-const test = ()=>{
-	consol.log(Request.prototype,Ajax)
-}
+import Test from "./text.js"
 render(
-	<h1 onClick={()=>test()}>hello,world</h1>,document.getElementById("root")
+	<Test/>,document.getElementById("root")
 )
