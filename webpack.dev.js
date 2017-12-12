@@ -8,13 +8,7 @@ const path = require("path");
 const devConfig = {
 	devtool: 'source-map',
 	devServer:{
-		contentBase: path.resolve(__dirname, 'src'),
-        proxy:{
-            "/":{
-                target:"http://10.0.11.193:8080",
-                changeOrigin:true
-            }
-        },
+        contentBase: path.resolve(__dirname, 'src'),
         host: "0.0.0.0",
         port:3333,
         open:true,

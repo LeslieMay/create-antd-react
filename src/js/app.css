@@ -18,3 +18,12 @@ body{
 		}
 	}
 }
+
+.completed{
+	text-decoration:line-through;
+	cursor: inherit;
+}
+.noCompleted{
+	text-decoration: none;
+	cursor: pointer;
+}
