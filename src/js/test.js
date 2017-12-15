@@ -10,9 +10,9 @@ class Test extends Component{
 		const {dispatch,visibleTodos,visibilityFilter} = this.props;
 		return (
 			<div>
-				<AddTodo add={text=>{console.log(this.props);dispatch(addTodo(text));console.log(this.props);}}/>
-				<TodoList todos={visibleTodos} click={index=>{console.log(this.props);dispatch(completeTodo(index));console.log(this.props);}}/>
-				<Footer filter={visibilityFilter} change={filter=>{console.log(this.props);dispatch(setVisibilityFilter(filter));console.log(this.props);}}/>			
+				<AddTodo add={text=>{dispatch(addTodo(text))}}/>
+				<TodoList todos={visibleTodos} click={index=>{dispatch(completeTodo(index))}}/>
+				<Footer filter={visibilityFilter} change={filter=>{dispatch(setVisibilityFilter(filter))}}/>			
 			</div>
 		)
 	}
